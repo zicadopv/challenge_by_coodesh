@@ -20,7 +20,8 @@ def test_return_instance_list(resp):
 
 
 def test_columns_exists(resp):
-    columns = ['id', 'title', 'url', 'imageUrl', 'newsSite', 'summary', 'publishedAt', 'updatedAt', 'featured', 'launches', 'events']
+    columns = ['id', 'title', 'url', 'imageUrl', 'newsSite', 'summary', 'publishedAt',
+               'updatedAt', 'featured', 'launches', 'events']
     for info in json.loads(resp.text):
         line = info
         for index, key in enumerate(line):

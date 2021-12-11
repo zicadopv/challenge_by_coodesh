@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def index(request):
+    template_name = 'voos/index.html'
+    context = {}
+    render(request, template_name, context)
