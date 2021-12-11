@@ -1,21 +1,48 @@
-name: CI
+name: Python application
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
-
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
+    env:
+      PIPENV_NO_INHERIT: 1
+      PIPENV_IGNORE_VIRTUALENVS: 1
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:11.5
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports: ['5432:5432']
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Run a one-line script
-        run: echo Hello, world!
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.9
+    - name: Copying configurations
+      run: |
+        cp contrib/env-sample .env
+    - name: Install dependencies
+      run: |
+        pip install pipenv
+        pip install -r requirements-dev.txt
+    - name: Lint with flake8
+      run: |
+        pipenv run flake8 .
+    - name: Test with pytest
+      run: |
+        pipenv run pytest project_space_flight --cov=project_space_flight
+    - name: Posting Coverage
+      env:
+        CODECOV_TOKEN: "a25e3e4c-71da-4e0c-9dd2-db308c481bb4"
+      run: |
+        pipenv run codecov
