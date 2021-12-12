@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from voos.models import Voo, Launch, Events
+from voos.models import Voo
 
 
 @admin.register(Voo)
@@ -10,18 +10,8 @@ class VoosAdmin(admin.ModelAdmin):
         'key',
         'title',
         'url',
-        'imageUrl',
-        'newsSite',
+        'image_url',
+        'news_site',
         'summary',
         'featured'
     ]
-
-
-@admin.register(Launch)
-class LaunchAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(Events)
-class EventsAdmin(admin.ModelAdmin):
-    pass

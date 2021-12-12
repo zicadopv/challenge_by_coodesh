@@ -6,8 +6,8 @@ from requests import get
 
 @pytest.fixture
 def resp(client):
-    resp = get('https://api.spaceflightnewsapi.net/v3/articles')
-    # resp = client.get('https://api.spaceflightnewsapi.net/v3/articles')
+    # resp = get('https://api.spaceflightnewsapi.net/v3/articles')
+    resp = client.get('https://api.spaceflightnewsapi.net/v3/articles')
     return resp
 
 
