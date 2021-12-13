@@ -41,9 +41,16 @@ cp contrib\env-sample .env
 ````
 python manage.py migrate
 ````
-- Criar um usuário 
+- Criar um usuário e rode o scripts para baixar os dados do site 
 ````
 python manage.py createsuperuser
+python api_spaceflight.py
+````
+
+## Usar os endpoints
+
+- Toda requisição precisa de um TOKEN que pode ser obtido rodando 
+````
 ````
 
 
