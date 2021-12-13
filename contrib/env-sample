@@ -1,5 +1,5 @@
 DEBUG=True
-SECRET_KEY=
+SECRET_KEY=')xwjb^8qe_hzhftn+#p+re$9deht+(@rrn+s1t6u5c0)=hm6z-'
 ALLOWED_HOSTS=localhost,127.0.0.1
 DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres
 
