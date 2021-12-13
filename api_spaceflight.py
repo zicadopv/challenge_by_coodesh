@@ -1,11 +1,12 @@
 from requests import get
 import json
 import os
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project_space_flight.settings")
 import django
 django.setup()
 from voos.models import Voo
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project_space_flight.settings")
 
 RED = "\033[1;31m"
 BLUE = "\033[1;34m"
