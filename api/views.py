@@ -75,7 +75,7 @@ def article_update(request, key):
                 serializer_class.errors,
                 status=status.HTTP_400_BAD_REQUEST
             )
-        except Voo.DoesNotExist as err:
+        except Voo.DoesNotExist:
             return Response(
                 f"O artigo de key..:{key} não existe na base",
                 status.HTTP_404_NOT_FOUND
@@ -91,7 +91,7 @@ def article_delete(request, key):
             article = Voo.objects.get(key=key)
             article.delete()
             return Response(status.HTTP_200_OK)
-        except Exception as err:
+        except Exception:
             return Response(
                 f"O artigo de key..:{key} não existe na base",
                 status.HTTP_404_NOT_FOUND
