@@ -1,7 +1,45 @@
-# Project Space Flight News
+# Projeto Space Flight News
 
-## First to-do
+Tem como objetivo pegar os dados do site [site da API]{https://api.spaceflightnewsapi.net/v3/articles} e disponibilizar no nosso site para ser consumidos via API pelos clientes
 
+
+### *Linguagens*
+- Python
+
+### *Frameworks*
+- Django
+- Django Rest Framework
+
+### *Banco de dados*
+- Postgres
+
+### *Hospedagem*
+- Heroku
+
+## Como instalar o sistema:
+- Faça o clone do projeto: 
+````
+git clone https://github.com/zicadopv/challenge_by_coodesh.git
+````
+- Entre na pasta
+````
+cd challenge_by_coodesh
+````
+- Crie uma máquina virtual
+````
+python.exe -m venv .venv
+````
+- Entrar na máquina virtual e instalar as libs
+````
+.venv\Scripts\activate
+python.exe -m pip install --upgrade pip 
+pip install -r requirements.txt
+````
+
+- Faça uma cópia do arquivo **env-sample**
+````
+cp contrib\env-sample .env
+````
 
 ### Referência para o desafio ***Backend Challenge Space Flight News 20210823***
 
