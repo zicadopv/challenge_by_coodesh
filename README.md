@@ -25,7 +25,7 @@ git clone https://github.com/zicadopv/challenge_by_coodesh.git
 ````
 cd challenge_by_coodesh
 ````
-- Crie uma máquina virtual, entrar e instalar as libs
+- Criar uma máquina virtual, entrar e instalar as libs
 ````
 python.exe -m venv .venv
 .venv\Scripts\activate
