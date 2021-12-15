@@ -18,9 +18,6 @@ def index(request):
 
 @api_view(['GET'])
 def articles(request):
-    """[GET]/articles/: Listar todos os artigos da base de dados,
-        utilizar o sistema de paginação para não sobrecarregar a REQUEST
-    """
     articles = Voo.objects.all()
     serializer = ArticlesSerializer(articles, many=True)
     return Response(serializer.data)
@@ -28,7 +25,6 @@ def articles(request):
 
 @api_view(['GET'])
 def article_key(request, key):
-    """[GET]/articles/id: Obter a informação somente de um artigo"""
     if request.method == 'GET':
         try:
             article = Voo.objects.filter(key=key)
@@ -44,7 +40,6 @@ def article_key(request, key):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def article_new(request):
-    """[POST]/articles/: Adicionar um novo artigo"""
     if request.method == 'POST':
         serializer = ArticlesSerializer(data=request.data)
         if serializer.is_valid():
@@ -58,7 +53,6 @@ def article_new(request):
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def article_update(request, key):
-    """[PUT]/articles/{id}: Atualizar um artigo baseado no id"""
     if request.method == 'PUT':
         try:
             article = Voo.objects.get(key=key)
@@ -85,7 +79,6 @@ def article_update(request, key):
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def article_delete(request, key):
-    """[DELETE]/articles/{id}: Remover um artigo baseado no id"""
     if request.method == 'DELETE':
         try:
             article = Voo.objects.get(key=key)

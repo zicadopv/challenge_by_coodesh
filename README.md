@@ -1,6 +1,7 @@
 # Projeto Space Flight News
 
-Tem como objetivo pegar os dados do site [site da API]{https://api.spaceflightnewsapi.net/v3/articles} e disponibilizar no nosso siSteMA para ser consumidos via API pelos clientes
+Tem como objetivo pegar os dados do site [site da API]{https://api.spaceflightnewsapi.net/v3/articles} 
+e disponibilizar no nosso siSteMA para ser consumidos via API pelos clientes
 
 
 ### *Linguagens*
@@ -32,7 +33,6 @@ python.exe -m venv .venv
 python.exe -m pip install --upgrade pip 
 pip install -r requirements.txt
 ````
-
 - Faça uma cópia do arquivo **env-sample**
 ````
 cp contrib\env-sample .env
@@ -41,27 +41,30 @@ cp contrib\env-sample .env
 ````
 python manage.py migrate
 ````
-- Criar um usuário e rode o scripts para baixar os dados do site 
+- Criar um usuário e rodar o scripts para baixar os dados do site 
 ````
 python manage.py createsuperuser
 python api_spaceflight.py
 ````
 
-## Usar os endpoints
+## Endpoints
 
-- Toda requisição precisa de um TOKEN que pode ser obtido rodando 
+### Melhor maneira de acessar os endpoints é através do programa INSOMNIA
+
+Acesso sem TOKEN
 ````
+[GETT]http://127.0.0.1:8000/articles/ -> Lista todos os artigos da base
+[GETT]http://127.0.0.1:8000/article_details/key/ -> Lista de um artigo específico
+````
+Acesso com TOKEN
+````
+[POST]http://127.0.0.1:8000/article/ -> Cria um novo artigo
+[PUT]http://127.0.0.1:8000/article/key/ -> Edita um novo artigo
+[DELETE]http://127.0.0.1:8000/article_delete/key/ -> Deleta um artigo
+````
+Para gerar o TOKEN é só acessar o endpoint a seguir e logar
+````
+[POST]http://127.0.0.1:8000/api/token/
 ````
 
-
-### Referência para o desafio ***Backend Challenge Space Flight News 20210823***
-
-https://lab.coodesh.com/zicadopv/space-flight-news-20210823?utm_source=mail&utm_medium=sendgrid&utm_campaign=website#
-
-
-## Dicas
-
-````
-Ter 2 contas do github no mesmo computador:
-- [by Fabricia]{https://dev.to/fabriciadiniz/como-utilizar-duas-contas-do-github-no-mesmo-computador-windows-2348}
-````
+## ***This is a challenge by Coodesh***

@@ -3,8 +3,7 @@ from django.db import models
 
 class Voo(models.Model):
     key = models.IntegerField(
-        unique=True,
-        null=True
+        unique=True
     )
     title = models.CharField(
         max_length=255
