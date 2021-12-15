@@ -1,8 +1,11 @@
 # Projeto Space Flight News
 
+Link da apresentação: https://youtu.be/ALxOjE0vCbM
+
 Tem como objetivo pegar os dados do site [site da API]{https://api.spaceflightnewsapi.net/v3/articles} 
 e disponibilizar no nosso siSteMA para ser consumidos via API pelos clientes
 
+Projeto rodando no heroku: [Site]{https://intense-eyrie-53568.herokuapp.com/}
 
 ### *Linguagens*
 - Python
